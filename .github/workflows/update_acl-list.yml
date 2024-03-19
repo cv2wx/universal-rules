@@ -1,0 +1,42 @@
+name: Update ACL-list
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  #push:
+  #  branches: "main"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch: 
+
+  #Schedule to run at a specified moment
+  #schedule: 
+  #  - cron: '0 0 * * *'
+
+jobs:
+  run: 
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v3
+      - name: get resource & upload
+        run: |
+          mkdir -p ACL-list
+          cd ACL-list
+          wget https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list -O LocalAreaNetwork.list
+          wget https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaIp.list -O ChinaIp.list
+          wget https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list -O BanProgramAD.list
+          wget https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list -O ChinaMedia.list
+          wget https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list -O BanAD.list
+          wget https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list -O ChinaCompanyIp.list
+          wget https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list -O ChinaDomain.list
+          wget https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list -O BanEasyList.list
+          wget https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list -O BanEasyListChina.list
+          wget https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list -O BanEasyPrivacy.list
+          git config --global user.name "cv2wx"
+          git config --global user.email "i@chingjyu.cyou"
+          git add -A
+          git commit -m "upload domainlist"
+          git push -u origin main --force
+          
