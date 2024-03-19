@@ -1,0 +1,56 @@
+name: Update sing rule set
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  #push:
+  #  branches: "main"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch: 
+
+  # Schedule to run at a specified moment
+  schedule: 
+    - cron: '0 0 * * *'
+
+jobs:
+  run: 
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v3
+      - name: get resource & upload
+        run: |
+          mkdir -p sing
+          cd sing
+          wget https://github.com/SagerNet/sing-box/releases/download/v1.9.0-beta.17/sing-box-1.9.0-beta.17-linux-amd64.tar.gz
+          tar -xzvf sing-box-1.9.0-beta.17-linux-amd64.tar.gz
+          wget https://github.com/soffchen/sing-geosite/releases/latest/download/geosite.db
+          wget https://github.com/soffchen/sing-geoip/releases/latest/download/geoip.db
+          wget https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/wechat.json
+          ./sing-box geoip export CN
+          ./sing-box geosite export cn
+          ./sing-box geosite export 'geolocation-!cn'
+          ./sing-box geosite export catelogy-ads-all
+          ./sing-box geosite export private
+          ./sing-box rule-set compile --output geoip-cn.srs geoip-CN.json
+          ./sing-box rule-set compile --output geosite-cn.srs geosite-cn.json
+          ./sing-box rule-set compile --output geosite-private.srs geosite-private.json
+          ./sing-box rule-set compile --output 'geolocation-!cn.srs' 'geosite-geolocation-!cn.json'
+          ./sing-box rule-set compile --output ads-all.srs geosite-catelogy-ads-all.json
+          ./sing-box rule-set compile --output geosite-wechat.srs wechat.json
+          rm -f sing-box-1.9.0-beta.17-linux-amd64.tar.gz
+          rm -f geosite.db
+          rm -f geoip.db
+          rm -f sing-box
+          rm -f geoip-CN.json
+          rm -f geosite-cn.json
+          rm -f geosite-private.json
+          rm -f wechat.json
+          git config --global user.name "cv2wx"
+          git config --global user.email "i@chingjyu.cyou"
+          git add -A
+          git commit -m "upload sing rule set"
+          git push -u origin main --force
+          
