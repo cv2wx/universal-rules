@@ -33,7 +33,7 @@ jobs:
           ./sing-box geoip export CN
           ./sing-box geosite export cn
           ./sing-box geosite export 'geolocation-!cn'
-          ./sing-box geosite export catelogy-ads-all
+          ./sing-box geosite export category-ads-all
           ./sing-box geosite export private
           ./sing-box rule-set compile --output geoip-cn.srs geoip-CN.json
           ./sing-box rule-set compile --output geosite-cn.srs geosite-cn.json
