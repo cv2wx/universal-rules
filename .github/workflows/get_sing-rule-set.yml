@@ -38,7 +38,7 @@ jobs:
           ./sing-box-1.9.0-beta.17-linux-amd64/sing-box rule-set compile --output geosite-cn.srs geosite-cn.json
           ./sing-box-1.9.0-beta.17-linux-amd64/sing-box rule-set compile --output geosite-private.srs geosite-private.json
           ./sing-box-1.9.0-beta.17-linux-amd64/sing-box rule-set compile --output 'geolocation-!cn.srs' 'geosite-geolocation-!cn.json'
-          ./sing-box-1.9.0-beta.17-linux-amd64/sing-box rule-set compile --output ads-all.srs geosite-catelogy-ads-all.json
+          ./sing-box-1.9.0-beta.17-linux-amd64/sing-box rule-set compile --output ads-all.srs geosite-category-ads-all.json
           ./sing-box-1.9.0-beta.17-linux-amd64/sing-box rule-set compile --output geosite-wechat.srs wechat.json
           rm -f sing-box-1.9.0-beta.17-linux-amd64.tar.gz
           rm -f geosite.db
@@ -47,7 +47,8 @@ jobs:
           rm -f geosite-cn.json
           rm -f geosite-private.json
           rm -f wechat.json
-          rmdir sing-box-1.9.0-beta.17-linux-amd64
+          rm -f geosite-category-ads-all.json
+          rm -rf sing-box-1.9.0-beta.17-linux-amd64
           git config --global user.name "cv2wx"
           git config --global user.email "i@chingjyu.cyou"
           git add -A
