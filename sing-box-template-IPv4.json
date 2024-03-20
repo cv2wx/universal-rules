@@ -159,43 +159,43 @@
         "tag": "geosite-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/cv2wx/universal-rules/main/sing/geosite-cn.srs",
-        "download_detour": "proxy"
+        "url": "https://testingcf.jsdelivr.net/gh/cv2wx/universal-rules@main/sing/geosite-cn.srs",
+        "download_detour": "direct"
       },
       {
         "tag": "geoip-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/cv2wx/universal-rules/main/sing/geoip-cn.srs",
-        "download_detour": "proxy"
+        "url": "https://testingcf.jsdelivr.net/gh/cv2wx/universal-rules@main/sing/geoip-cn.srs",
+        "download_detour": "direct"
       },
       {
         "tag": "geosite-private",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/cv2wx/universal-rules/main/sing/geosite-private.srs",
-        "download_detour": "proxy"
+        "url": "https://testingcf.jsdelivr.net/gh/cv2wx/universal-rules@main/sing/geosite-private.srs",
+        "download_detour": "direct"
       },
       {
         "tag": "geosite-geolocation-!cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/cv2wx/universal-rules/main/sing/geolocation-!cn.srs",
-        "download_detour": "proxy"
+        "url": "https://testingcf.jsdelivr.net/gh/cv2wx/universal-rules@main/sing/geolocation-!cn.srs",
+        "download_detour": "direct"
       },
       {
         "tag": "geosite-category-ads-all",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/cv2wx/universal-rules/main/sing/ads-all.srs",
-        "download_detour": "proxy"
+        "url": "https://testingcf.jsdelivr.net/gh/cv2wx/universal-rules@main/sing/ads-all.srs",
+        "download_detour": "direct"
       },
       {
         "tag": "geosite-wechat",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/cv2wx/universal-rules/main/sing/geosite-wechat.srs",
-        "download_detour": "proxy"
+        "url": "https://testingcf.jsdelivr.net/gh/cv2wx/universal-rules@main/sing/geosite-wechat.srs",
+        "download_detour": "direct"
       }
     ]
   }
